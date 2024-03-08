@@ -123,16 +123,16 @@ gsap.from(text.chars, {
   transformOrigin: "100% 50%",
   ease: "back",
   stagger: 0.02,
-  color: "#0E0E0E",
+  color: "#232323",
 });
 
-gsap.from(".page5", {
-  scrollTrigger: {
-    scroller: ".main",
-    trigger: "page5",
-    pin: true,
-    start: " top 0%",
-    end: "top 300%",
-    markers: true,
-  },
-});
+gsap.to('.page5 img', {
+  scrollTrigger:{
+    start:'top 10%',
+    end:'top -150%',
+    markers:true,
+scroller:'.main',
+trigger:'.page5 img',
+pin:true,
+  }
+})
