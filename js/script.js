@@ -35,34 +35,93 @@ function loco() {
 
 loco();
 
+const tl = gsap.timeline();
+
+document.querySelector(".white");
+
+tl.to(".white", {
+  width: "100%",
+  height: "200%",
+  duration: 2,
+  scale: 1.12,
+});
+
+tl.to(".loader", {
+  y: "-100%",
+  duration: 1,
+  opacity: 0,
+});
+
+function simulateLoader() {
+  var percentage = 1;
+  var duration = 1000; // 2 seconds
+  var startTime = performance.now();
+
+  function updateContent(timestamp) {
+    var elapsed = timestamp - startTime;
+    var progress = elapsed / duration;
+
+    document.getElementById("load").innerText =
+      +Math.round(Math.min(progress * 100, 100)) + "%";
+
+    if (progress < 1) {
+      requestAnimationFrame(updateContent);
+    }
+  }
+
+  requestAnimationFrame(updateContent);
+}
+
+setTimeout(simulateLoader, 100);
+
+tl.from("nav a", {
+  opacity: 0,
+  y: 10,
+  stagger:.1
+});
+
+setTimeout(function () {
+  Shery.textAnimate(" .page1 h1", {
+    style: 1,
+    y: 50,
+    delay: 0.1,
+
+    duration: 1,
+    ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+    stagger: 0.2,
+  });
+}, 2200);
+
+
+tl.from('.vide',{
+  opacity:0,
+
+})
+
+tl.from('.thodasacontent',{
+  opacity:0
+})
+
+tl.from('.right-hero p',{
+  opacity:0
+})
+
 document.querySelectorAll("a").forEach((link) => {
   link.addEventListener("mouseover", () => {
-    const text = new SplitType(link, { types: "words, chars" });
+    const text = new SplitType(link, { types: " chars" });
 
     gsap.from(text.chars, {
-      duration: 0.6,
-
+    
       duration: 1,
       ease: "bounce.out",
       y: -20,
       stagger: 0.02,
       scale: 1.2,
-      // duration:.4,
-      autoAlpha: 4,
-      // rotationX: -80,
-      // y: 10,
+      autoAlpha: 1,
+
       x: 20,
     });
   });
-});
-
-Shery.textAnimate(" .page1 h1, .page1 p", {
-  style: 1,
-  y: 50,
-  delay: 0.1,
-  duration: 1,
-  ease: "cubic-bezier(0.23, 1, 0.320, 1)",
-  stagger: 0.2,
 });
 
 let paragraph = " ";
@@ -112,3 +171,13 @@ gsap.to(".page5 img", {
     pin: true,
   },
 });
+
+
+document.querySelector('#top').addEventListener("onclick", ()=>{
+window.scrollTo({
+  top:0,
+  behavior:'smooth'
+})
+console.log('hello');
+
+})
