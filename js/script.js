@@ -77,7 +77,7 @@ setTimeout(simulateLoader, 100);
 tl.from("nav a", {
   opacity: 0,
   y: 10,
-  stagger:.1
+  stagger: 0.1,
 });
 
 setTimeout(function () {
@@ -92,26 +92,23 @@ setTimeout(function () {
   });
 }, 2200);
 
+tl.from(".vide", {
+  opacity: 0,
+});
 
-tl.from('.vide',{
-  opacity:0,
+tl.from(".thodasacontent", {
+  opacity: 0,
+});
 
-})
-
-tl.from('.thodasacontent',{
-  opacity:0
-})
-
-tl.from('.right-hero p',{
-  opacity:0
-})
+tl.from(".right-hero p", {
+  opacity: 0,
+});
 
 document.querySelectorAll("a").forEach((link) => {
   link.addEventListener("mouseover", () => {
     const text = new SplitType(link, { types: " chars" });
 
     gsap.from(text.chars, {
-    
       duration: 1,
       ease: "bounce.out",
       y: -20,
@@ -172,12 +169,12 @@ gsap.to(".page5 img", {
   },
 });
 
+document.querySelector("#top").addEventListener("click", () => {
+  gsap.to('.main', 
+    { y: 0, 
 
-document.querySelector('#top').addEventListener("onclick", ()=>{
-window.scrollTo({
-  top:0,
-  behavior:'smooth'
-})
-console.log('hello');
-
-})
+      duration:1.5,
+      ease: "power3.out"
+   });
+  console.log("hello");
+});
