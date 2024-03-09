@@ -41,14 +41,17 @@ document.querySelectorAll("a").forEach((link) => {
 
     gsap.from(text.chars, {
       duration: 0.6,
-      // transformOrigin: "10% 50%",
-      ease: "back",
+
+      duration: 1,
+      ease: "bounce.out",
+      y: -20,
       stagger: 0.02,
-      scale: 2,
-      autoAlpha: 0,
-      rotationX: -80,
+      scale: 1.2,
+      // duration:.4,
+      autoAlpha: 4,
+      // rotationX: -80,
       // y: 10,
-      x: 10,
+      x: 20,
     });
   });
 });
