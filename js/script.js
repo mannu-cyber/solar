@@ -173,7 +173,7 @@ document.querySelector("#top").addEventListener("click", () => {
   gsap.to('.main', 
     { y: 0, 
 
-      duration:1.5,
+      duration:3,
       ease: "power3.out"
    });
   console.log("hello");
